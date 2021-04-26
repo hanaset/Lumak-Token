@@ -62,7 +62,7 @@ class PonnyJpaDatabaseConfig(private val mbeanExporter: MBeanExporter) {
     fun ponnyEntityManagerFactory(builder: EntityManagerFactoryBuilder): LocalContainerEntityManagerFactoryBean {
         return builder
                 .dataSource(ponnyDataSource())
-                .packages("com.ponny.common.entity")
+                .packages("com.lumak.ponny.common.entity")
                 .persistenceUnit("ponnyPersistenceUnit")
                 .properties(getVendorProperties(ponnyDataSource()))
                 .build()

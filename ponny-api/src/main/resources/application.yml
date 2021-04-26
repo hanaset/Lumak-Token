@@ -1,0 +1,14 @@
+server:
+  port: 5000
+
+spring:
+  profiles:
+    active: local
+
+
+klaytn:
+  api:
+    access-key:
+    secret-key:
+    authorization:
+    chain-id:

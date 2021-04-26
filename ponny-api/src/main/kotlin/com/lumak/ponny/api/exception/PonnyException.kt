@@ -6,3 +6,6 @@ open class PonnyException(
 ): RuntimeException(
     message ?: code.message
 )
+
+class PonnyNotFoundTokenException: PonnyException(ErrorCode.NOT_FOUND_TOKEN)
+class PonnyDeployException: PonnyException(ErrorCode.INTERNAL_SERVER_ERROR)
