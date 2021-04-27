@@ -96,6 +96,6 @@ class KasKIP17Service(
 
     private fun getAlias(symbol: String): String {
         val tokenEntity = tokenRepository.findBySymbol(symbol) ?: throw PonnyNotFoundTokenException()
-        return tokenEntity.address
+        return tokenEntity.alias
     }
 }

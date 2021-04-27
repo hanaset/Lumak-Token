@@ -17,6 +17,7 @@ dependencies {
 	}
 
 	implementation("xyz.groundx.caver:caver-java-ext-kas:1.1.1-rc.2")
+	implementation("com.google.code.gson:gson:2.8.5")
 }
 
 springBoot.buildInfo { properties { } }

@@ -16,6 +16,6 @@ class PonnyPhotoUploadService(
     fun photoUpload(uploadFile: MultipartFile, name: String, title: String, description: String, to: String, symbol: String): Kip17TransactionStatusResponse {
         val res = fileUploadService.upload(writer = name, title = title, description = description, uploadFile = uploadFile)
         logger.info("$symbol Token Mint =>\n${res}")
-        return kasKIP17Service.mintToken(symbol, to, res.imageUrl)
+        return kasKIP17Service.mintToken(symbol, to, res)
     }
 }
