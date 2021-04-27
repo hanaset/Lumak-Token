@@ -14,6 +14,7 @@ import xyz.groundx.caver_ext_kas.rest_client.io.swagger.client.api.kip17.model.G
 import xyz.groundx.caver_ext_kas.rest_client.io.swagger.client.api.kip17.model.Kip17ContractInfoResponse
 import xyz.groundx.caver_ext_kas.rest_client.io.swagger.client.api.kip17.model.Kip17TransactionStatusResponse
 import java.time.Instant
+import kotlin.random.Random
 
 @Service
 class KasKIP17Service(
@@ -85,16 +86,16 @@ class KasKIP17Service(
     }
 
     private fun generateTokenId(symbol: String): String {
-        val random = Math.random().toLong() % 100
+        val random = Random.nextInt(10, 100)
         val timestamp = Instant.now().epochSecond
-        val id = "${symbol}${random}${timestamp}"
+        val id = "0x" + "${random}${timestamp}".toLong().toString(16)
 
-        logger.info("KasKIPService :: generateTokenId() :: ${id}")
+        logger.info("KasKIPService :: generateTokenId() :: $id")
         return id
     }
 
     private fun getAlias(symbol: String): String {
         val tokenEntity = tokenRepository.findBySymbol(symbol) ?: throw PonnyNotFoundTokenException()
-        return tokenEntity.alias
+        return tokenEntity.address
     }
 }
